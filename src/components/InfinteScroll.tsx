@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 type Post = {
   id: number;
@@ -28,7 +28,7 @@ export const InfiniteScroll = () => {
           setPosts((prevPosts) => [...prevPosts, ...postsRes]);
         }
       } catch (err) {
-        console.error('Failed to fetch posts:', err);
+        console.error("Failed to fetch posts:", err);
       } finally {
         setIsLoading(false);
       }
@@ -57,22 +57,23 @@ export const InfiniteScroll = () => {
         <div
           key={post.id}
           style={{
-            border: '1px solid grey',
-            padding: '10px',
-            margin: '10px',
+            border: "1px solid grey",
+            padding: "10px",
+            margin: "10px",
           }}
         >
           <h1>{post.title}</h1>
           <img
             src={post.url}
             alt={post.title}
-            style={{ maxWidth: '100%', height: 'auto' }}
+            style={{ maxWidth: "100%", height: "auto" }}
+            loading="eager"
           />
         </div>
       ))}
       {isLoading && <p>Loading...</p>}
       {!hasMore && <p>No more posts to load.</p>}
-      <div ref={bottomElement} style={{ height: '20px' }}></div>
+      <div ref={bottomElement} style={{ height: "20px" }}></div>
     </div>
   );
 };

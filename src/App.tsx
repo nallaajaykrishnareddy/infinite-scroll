@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { InfiniteScroll } from './components/InfinteScroll';
 
 function App() {
